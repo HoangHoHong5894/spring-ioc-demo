@@ -24,16 +24,20 @@ public class BookController {
 	public BookController(BookService bookService) {
 		service = bookService;
 	}
+	
+	public void setBookService(@Autowired BookService bookService) {
+		service = bookService;
+	}
 
 	@GetMapping("")
 	public Object getBook()
 	{
 //		String [] books = {"Design Pattern", "Java Recipe","How to build a maintainable off Software"};
 //		return Arrays.asList(books);
-		return this.getBooks();
+		return this.book;
 	}
 	
-	@GetMapping("s")
+	@GetMapping("/s")
 	public Object getBooks()
 	{
 		return service.getBooks();
